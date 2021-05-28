@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="VGA_Sync">
+		<CBX_INST_ENTRY INSTANCE_NAME="|VGA_controller|pixel_generator:Pixel_generator|LPM_ROM:green|altrom:srom|altsyncram:rom_block" CBX_FILE_NAME="altsyncram_qs01.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

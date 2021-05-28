@@ -1,0 +1,46 @@
+LIBRARY IEEE;
+USE ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+------------------------------------
+ENTITY VGA_controller  IS
+    GENERIC     (  N       	:  INTEGER  := 2);
+	 PORT        (  clk     	:  IN       STD_LOGIC;
+	                rst    	  	:  IN       STD_LOGIC;
+						 ena   		:  IN       STD_LOGIC;
+						 hsync		:  OUT      STD_LOGIC;
+						 vsync      :  OUT      STD_LOGIC;
+						 r          :  OUT      STD_LOGIC;
+						 g          :  OUT      STD_LOGIC;
+						 b          :  OUT      STD_LOGIC);
+END ENTITY VGA_controller;
+-------------------------------------
+ARCHITECTURE functional OF VGA_controller IS
+
+SIGNAL pixel_x: STD_LOGIC;
+SIGNAL pixel_y: STD_LOGIC;
+SIGNAL video_on: STD_LOGIC;
+
+BEGIN
+
+						 
+VGA_sync: ENTITY work.VGA_sync 
+	 GENERIC MAP    (  N   => N);
+	 PORT MAP    (  clk   		=> clk, 
+	                rst    		=> rst,
+						 ena    		=> ena,
+						 video_on   => video_on,
+						 x_pixel    => x_pixel,
+						 y_pixel		=> y_pixel,
+						 hsync		=> hsync,
+						 vsync      => vsync);
+
+Pixel_generator: ENTITY work.Pixel_generator
+	 PORT MAP    (    clk         => clk,
+							video_on   => video_on,
+							pixel_x    => pixel_x,
+							pixel_y    => pixel_y,
+							r          => r,
+							g          => g, 
+							b          => b);
+						 
+END ARCHITECTURE functional;

@@ -1,0 +1,6 @@
+
+State Machine - |VGA_controller|binary_bcd:bin_to_BCD|state
+Name state.done state.shift state.start 
+state.start 0 0 0 
+state.shift 0 1 1 
+state.done 1 0 1 

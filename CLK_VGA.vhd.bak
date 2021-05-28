@@ -1,0 +1,21 @@
+LIBRARY IEEE;
+USE ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+------------------------------------
+ENTITY CLK_VGA IS
+	 PORT        (  clk     	:  IN       STD_LOGIC;
+	                rst    	  	:  IN       STD_LOGIC;
+						 ena   		:  IN       STD_LOGIC;
+						 Hvid_on		:  OUT      STD_LOGIC;
+						 HSync_s		:  OUT      STD_LOGIC;
+						 Next_row   :  OUT      STD_LOGIC;
+						 x_pixel    :  OUT 		 STD_LOGIC_VECTOR(9 DOWNTO 0));
+END ENTITY;
+-------------------------------------
+
+ARCHITECTURE rtl OF CLK_VGA IS
+ 
+BEGIN
+
+
+END ARCHITECTURE;

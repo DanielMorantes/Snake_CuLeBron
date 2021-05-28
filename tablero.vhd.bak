@@ -1,0 +1,77 @@
+LIBRARY IEEE;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.ALL;
+-------------------------------------------------------
+ENTITY tablero IS
+   PORT(    
+	
+            clk         :   IN   STD_LOGIC;
+	         rst         :   IN   STD_LOGIC;
+				r_data_y    :   IN   STD_LOGIC_VECTOR(3 DOWNTO 0);
+				r_data_x    :   IN   STD_LOGIC_VECTOR(3 DOWNTO 0);
+				
+				pos_y       :   IN   STD_LOGIC_VECTOR(3 DOWNTO 0);
+				pos_x       :   IN   STD_LOGIC_VECTOR(3 DOWNTO 0);
+				
+				cabeza      :   IN   STD_LOGIC_VECTOR(4 downto 0); --Manejo de direcciones
+            cola        :   IN   STD_LOGIC_VECTOR(4 downto 0);
+				r_addr      :   OUT  STD_LOGIC_VECTOR(4 DOWNTO 0);
+				white       :   OUT  STD_LOGIC
+	);	
+
+END ENTITY;
+
+ARCHITECTURE rtl OF tablero IS
+
+    TYPE mem_2d_type IS ARRAY (0 TO 3) OF STD_LOGIC_VECTOR(14 DOWNTO 0); --Registros de 15 partes de x, cada uno guarda los 15 bits de y
+    SIGNAL memory_table         :   mem_2d_type;
+    SIGNAL cuenta_culebra       :  UNSIGNED(4 downto 0);
+	 SIGNAL cuenta_culebra_next  :  UNSIGNED(4 downto 0);
+ 
+
+BEGIN
+   -- NEXT STATE LOGIC
+   
+	cuenta_culebra_next  <=  UNSIGNED(cola)  WHEN  (rst = '1')    ELSE
+	                         cuenta_culebra + 1      WHEN  NOT(cuenta_culebra = UNSIGNED(cabeza))   ELSE
+							       cuenta_culebra;
+							 
+
+   --WRITE PROCESS
+  write_process  :  PROCESS(clk, rst)
+  BEGIN
+     IF(rising_edge(clk ))   THEN
+	  -----------------------------------------------------------------------------------
+	     cuenta_culebra       :=  cuenta_culebra_next;
+		  
+		  memory_table(to_integer(unsigned(r_data_x)))(to_integer(unsigned(r_data_y)))   <=  '1'; 
+		  
+		  
+	     IF  (rst = '1')  THEN
+		     memory_table(0)  <= "000000000000000";
+			  memory_table(2)  <= "000000000000000";
+			  memory_table(3)  <= "000000000000000";
+			  memory_table(4)  <= "000000000000000";
+			  memory_table(5)  <= "000000000000000";
+			  memory_table(6)  <= "000000000000000";
+			  memory_table(7)  <= "000000000000000";
+			  memory_table(8)  <= "000000000000000";
+			  memory_table(9)  <= "000000000000000";
+			  memory_table(10) <= "000000000000000";
+			  memory_table(11) <= "000000000000000";
+			  memory_table(12) <= "000000000000000";
+			  memory_table(13) <= "000000000000000";
+			  memory_table(14) <= "000000000000000";
+		 END IF;
+		
+			  
+     END IF;
+	END PROCESS;   
+	
+	
+	--READ
+	r_addr <= STD_LOGIC_VECTOR(cuenta_culebra);
+	
+	white <= memory_table(to_integer(unsigned(pos_x)))(to_integer(unsigned(pos_y)));
+
+END ARCHITECTURE;

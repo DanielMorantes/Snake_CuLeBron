@@ -1,0 +1,221 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -5.331
+TNS   : -2561.140
+
+Type  : Slow 1200mV 85C Model Setup 'VGA_sync:VGA_sync|clk_VGA:clk_VGA|q_s[0]'
+Slack : -2.572
+TNS   : -80.321
+
+Type  : Slow 1200mV 85C Model Setup 'ContadorPuntaje:ContPuntaje|temp[2]'
+Slack : -0.761
+TNS   : -2.766
+
+Type  : Slow 1200mV 85C Model Setup 'rst'
+Slack : -0.399
+TNS   : -0.399
+
+Type  : Slow 1200mV 85C Model Hold 'rst'
+Slack : -1.432
+TNS   : -8.627
+
+Type  : Slow 1200mV 85C Model Hold 'ContadorPuntaje:ContPuntaje|temp[2]'
+Slack : -1.124
+TNS   : -2.239
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : -0.069
+TNS   : -0.069
+
+Type  : Slow 1200mV 85C Model Hold 'VGA_sync:VGA_sync|clk_VGA:clk_VGA|q_s[0]'
+Slack : 0.359
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'clk'
+Slack : -2.996
+TNS   : -1385.657
+
+Type  : Slow 1200mV 85C Model Recovery 'VGA_sync:VGA_sync|clk_VGA:clk_VGA|q_s[0]'
+Slack : -0.296
+TNS   : -7.446
+
+Type  : Slow 1200mV 85C Model Recovery 'ContadorPuntaje:ContPuntaje|temp[2]'
+Slack : 0.324
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'ContadorPuntaje:ContPuntaje|temp[2]'
+Slack : -1.397
+TNS   : -4.191
+
+Type  : Slow 1200mV 85C Model Removal 'clk'
+Slack : -0.498
+TNS   : -3.984
+
+Type  : Slow 1200mV 85C Model Removal 'VGA_sync:VGA_sync|clk_VGA:clk_VGA|q_s[0]'
+Slack : 0.015
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -775.264
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'rst'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'VGA_sync:VGA_sync|clk_VGA:clk_VGA|q_s[0]'
+Slack : -1.000
+TNS   : -38.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ContadorPuntaje:ContPuntaje|temp[2]'
+Slack : -1.000
+TNS   : -4.000
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -4.709
+TNS   : -2246.408
+
+Type  : Slow 1200mV 0C Model Setup 'VGA_sync:VGA_sync|clk_VGA:clk_VGA|q_s[0]'
+Slack : -2.265
+TNS   : -68.649
+
+Type  : Slow 1200mV 0C Model Setup 'ContadorPuntaje:ContPuntaje|temp[2]'
+Slack : -0.597
+TNS   : -2.111
+
+Type  : Slow 1200mV 0C Model Setup 'rst'
+Slack : -0.286
+TNS   : -0.286
+
+Type  : Slow 1200mV 0C Model Hold 'rst'
+Slack : -1.232
+TNS   : -7.218
+
+Type  : Slow 1200mV 0C Model Hold 'ContadorPuntaje:ContPuntaje|temp[2]'
+Slack : -0.925
+TNS   : -1.833
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : -0.108
+TNS   : -0.108
+
+Type  : Slow 1200mV 0C Model Hold 'VGA_sync:VGA_sync|clk_VGA:clk_VGA|q_s[0]'
+Slack : 0.313
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'clk'
+Slack : -2.494
+TNS   : -1152.758
+
+Type  : Slow 1200mV 0C Model Recovery 'VGA_sync:VGA_sync|clk_VGA:clk_VGA|q_s[0]'
+Slack : -0.295
+TNS   : -7.887
+
+Type  : Slow 1200mV 0C Model Recovery 'ContadorPuntaje:ContPuntaje|temp[2]'
+Slack : 0.376
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'ContadorPuntaje:ContPuntaje|temp[2]'
+Slack : -1.186
+TNS   : -3.558
+
+Type  : Slow 1200mV 0C Model Removal 'clk'
+Slack : -0.445
+TNS   : -3.560
+
+Type  : Slow 1200mV 0C Model Removal 'VGA_sync:VGA_sync|clk_VGA:clk_VGA|q_s[0]'
+Slack : 0.109
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -775.264
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'rst'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'VGA_sync:VGA_sync|clk_VGA:clk_VGA|q_s[0]'
+Slack : -1.000
+TNS   : -38.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ContadorPuntaje:ContPuntaje|temp[2]'
+Slack : -1.000
+TNS   : -4.000
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -3.242
+TNS   : -1330.188
+
+Type  : Fast 1200mV 0C Model Setup 'VGA_sync:VGA_sync|clk_VGA:clk_VGA|q_s[0]'
+Slack : -1.075
+TNS   : -29.664
+
+Type  : Fast 1200mV 0C Model Setup 'ContadorPuntaje:ContPuntaje|temp[2]'
+Slack : 0.045
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'rst'
+Slack : 0.337
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'rst'
+Slack : -1.042
+TNS   : -6.839
+
+Type  : Fast 1200mV 0C Model Hold 'ContadorPuntaje:ContPuntaje|temp[2]'
+Slack : -0.704
+TNS   : -1.341
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : -0.110
+TNS   : -0.595
+
+Type  : Fast 1200mV 0C Model Hold 'VGA_sync:VGA_sync|clk_VGA:clk_VGA|q_s[0]'
+Slack : 0.188
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'clk'
+Slack : -1.318
+TNS   : -607.131
+
+Type  : Fast 1200mV 0C Model Recovery 'VGA_sync:VGA_sync|clk_VGA:clk_VGA|q_s[0]'
+Slack : -0.272
+TNS   : -7.854
+
+Type  : Fast 1200mV 0C Model Recovery 'ContadorPuntaje:ContPuntaje|temp[2]'
+Slack : 0.495
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'ContadorPuntaje:ContPuntaje|temp[2]'
+Slack : -0.814
+TNS   : -2.442
+
+Type  : Fast 1200mV 0C Model Removal 'clk'
+Slack : -0.350
+TNS   : -2.806
+
+Type  : Fast 1200mV 0C Model Removal 'VGA_sync:VGA_sync|clk_VGA:clk_VGA|q_s[0]'
+Slack : -0.078
+TNS   : -0.782
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -791.839
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'rst'
+Slack : -3.000
+TNS   : -4.212
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'VGA_sync:VGA_sync|clk_VGA:clk_VGA|q_s[0]'
+Slack : -1.000
+TNS   : -38.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ContadorPuntaje:ContPuntaje|temp[2]'
+Slack : -1.000
+TNS   : -4.000
+
+------------------------------------------------------------

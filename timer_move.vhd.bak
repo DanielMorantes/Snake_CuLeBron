@@ -1,0 +1,54 @@
+LIBRARY IEEE;
+USE ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+------------------------------------
+ENTITY timer_move IS
+    GENERIC     (  N        :  INTEGER  := 4);
+	 PORT        (  clk      :  IN       STD_LOGIC;
+						 ena      :  IN       STD_LOGIC;
+						 sync_clr :  IN       STD_LOGIC;
+						 max_tick :  OUT      STD_LOGIC);
+
+						 
+END ENTITY;
+-------------------------------------
+
+ARCHITECTURE rtl OF timer_move IS
+    CONSTANT NINE           :  UNSIGNED(8  DOWNTO  0)  :=  (1 => '1', 3 => '1', others =>  '0');		
+	 CONSTANT TWO          :  UNSIGNED(8  DOWNTO  0)  :=  (1 => '1', others =>  '0');
+	 --SIGNAL count_s        :  INTEGER RANGE 0 to (2**N - 1);
+	 
+	 SIGNAL count_s          :  UNSIGNED(22  DOWNTO  0);
+	 SIGNAL count_next       :  UNSIGNED(22  DOWNTO  0);
+	 SIGNAL count_next_deci  :  UNSIGNED(N-1  DOWNTO  0);
+	 SIGNAL count_s_deci     :  UNSIGNED(N-1  DOWNTO  0);
+BEGIN
+    -- NEXT STATE LOGIC
+	 count_next  <=    (OTHERS  =>   '0')  WHEN  (count_s = 3 OR sync_clr = '1')    ELSE
+	                   count_s + 1         WHEN  (ena ='1')   ELSE
+							 count_s;
+							 
+	 count_next_deci  <=  (OTHERS  =>   '0')  WHEN  (count_s_deci = 5 OR sync_clr = '1')    ELSE
+	                   count_s_deci + 1      WHEN  (ena ='1' AND count_s = 3)   ELSE
+							 count_s_deci;
+							 
+	
+							
+							
+    PROCESS(clk)
+	     VARIABLE temp        :   UNSIGNED(22  DOWNTO  0);
+		  VARIABLE temp_deci   :   UNSIGNED(N-1  DOWNTO  0);
+	 BEGIN
+	    IF(rising_edge(clk))  THEN
+		    IF (ena='1') THEN
+			    temp       :=  count_next;
+				 temp_deci  :=  count_next_deci;
+			 END IF;
+		END IF;
+		count_s       <=  temp;
+		count_s_deci  <=  temp_deci;
+	END PROCESS;
+	
+	max_tick <= '1'  when count_s_deci = 5    ELSE  '0';
+
+END ARCHITECTURE;

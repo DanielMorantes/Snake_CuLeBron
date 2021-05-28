@@ -1,0 +1,36 @@
+LIBRARY IEEE;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.ALL;
+-------------------------------------------------------
+ENTITY culebra IS
+   PORT(    clk         :   IN   STD_LOGIC;
+	         rst         :   IN   STD_LOGIC
+	);	
+
+END ENTITY;
+
+ARCHITECTURE rtl OF culebra IS
+
+    TYPE mem_2d_type IS ARRAY (0 TO 4) OF STD_LOGIC_VECTOR(3 DOWNTO 0); --Registros de 32 partes de la culebra, cada uno guarda 4 bits en donde se escribirá la dirección en el tablero
+    SIGNAL x_culebra  :   mem_2d_type;
+	 SIGNAL y_culebra  :   mem_2d_type;
+ 
+
+BEGIN
+
+   --WRITE PROCESS
+  write_process  :  PROCESS(clk, rst)
+  BEGIN
+     IF(rising_edge(clk ))   THEN
+	     IF  (rst = '1')  THEN
+		     x_culebra(0) <= "0011";
+			  y_culebra(0) <= "0110";
+			  x_culebra(1) <= "0100";
+			  y_culebra(1) <= "0110";
+			  x_culebra(2) <= "0101";
+			  y_culebra(2) <= "0110";
+		   END IF;
+	  END IF;
+	END PROCESS;   
+
+END ARCHITECTURE;

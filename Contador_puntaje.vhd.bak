@@ -1,0 +1,46 @@
+LIBRARY IEEE;
+USE ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+------------------------------------
+ENTITY ContadorPuntaje IS
+    GENERIC     (  N        :  INTEGER  := 4);
+	 PORT        (  clk      :  IN       STD_LOGIC;
+	                rst      :  IN       STD_LOGIC;
+						 crecer   :  IN       STD_LOGIC;
+						 max_tick  :  OUT      STD_LOGIC;
+						 puntaje  :  OUT      STD_LOGIC_VECTOR(N-1  DOWNTO  0));
+END ENTITY;
+-------------------------------------
+
+ARCHITECTURE rtl OF ContadorPuntaje IS
+    CONSTANT ONES      :  UNSIGNED(N-1  DOWNTO  0)  :=  (OTHERS => '1');		
+	 	 	 
+	 SIGNAL up : STD_LOGIC;	 
+	 SIGNAL count_s     :  UNSIGNED(N-1  DOWNTO  0);
+	 SIGNAL count_next  :  UNSIGNED(N-1  DOWNTO  0);
+BEGIN
+	up <= '1';
+    -- NEXT STATE LOGIC
+	 count_next  <=    count_s + 1         WHEN  (crecer ='1'  AND  up='1')   ELSE
+							 count_s - 1         WHEN  (crecer ='1'  AND  up='0')   ELSE
+							 count_s;
+							
+    PROCESS(clk,rst, crecer)
+	     VARIABLE temp   :   UNSIGNED(N-1  DOWNTO  0);
+	 BEGIN
+	    IF(rst='1')  THEN
+		    temp   :=  (OTHERS   =>  '0');
+		 ELSIF(rising_edge(clk))  THEN
+		    IF (crecer='1') THEN
+			    temp  :=  count_next;
+			 END IF;
+		END IF;
+		puntaje  <=  STD_LOGIC_VECTOR(temp);
+		count_s  <=  temp;
+	END PROCESS;
+	
+	--  OUTPUT LOGIC
+	max_tick <= '1'  when count_s = ONES    ELSE  '0';
+	
+
+END ARCHITECTURE;

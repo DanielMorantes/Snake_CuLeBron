@@ -1,0 +1,48 @@
+LIBRARY IEEE;
+USE ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+------------------------------------
+ENTITY VGA_sync IS
+    GENERIC     (  N       	:  INTEGER  := 2);
+	 PORT        (  clk     	:  IN       STD_LOGIC;
+	                rst    	  	:  IN       STD_LOGIC;
+						 ena   		:  IN       STD_LOGIC;
+						 video_on   :  OUT      STD_LOGIC;
+						 x_pixel    :  OUT 		STD_LOGIC_VECTOR(9 DOWNTO 0);
+						 y_pixel    :  OUT      STD_LOGIC_VECTOR(9 DOWNTO 0);
+						 hsync		:  OUT      STD_LOGIC;
+						 vsync      :  OUT      STD_LOGIC
+						 );
+END ENTITY;
+-------------------------------------
+ARCHITECTURE functional OF VGA_sync IS
+
+SIGNAL next_row : STD_LOGIC;
+SIGNAL hvid_on, vvid_on : STD_LOGIC;
+
+BEGIN
+
+hsync_b: ENTITY work.HSync
+    GENERIC MAP (  N   => N)
+	 PORT MAP    (  clk   		=> clk, 
+	                rst    		=> rst,
+						 ena    		=> ena,
+						 Hvid_on		=> hvid_on,
+						 HSync_s		=> hsync,
+						 Next_row 	=> next_row,
+						 x_pixel    => x_pixel);
+						 
+						 
+vsync_b: ENTITY work.VSync
+    GENERIC MAP (  N  => N)
+	 PORT MAP    (  clk     	=> clk,
+	                rst    	  	=> rst, 
+						 ena   		=> ena AND next_row, 
+						 Vvid_on		=> Vvid_on,
+						 VSync_s		=> vsync,
+						 y_pixel    => y_pixel);
+						
+						
+video_on <= vvid_on AND hvid_on;
+						 
+END ARCHITECTURE;

@@ -1,0 +1,1340 @@
+Analysis & Synthesis report for VGA_Sync
+Thu May 27 08:42:43 2021
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. State Machine - |VGA_controller|binary_bcd:bin_to_BCD|state
+ 10. User-Specified and Inferred Latches
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for pixel_generator:Pixel_generator|LPM_ROM:green|altrom:srom|altsyncram:rom_block|altsyncram_qs01:auto_generated
+ 16. Parameter Settings for User Entity Instance: Top-level Entity: |VGA_controller
+ 17. Parameter Settings for User Entity Instance: culebra:culebra
+ 18. Parameter Settings for User Entity Instance: timer_move:timer_move
+ 19. Parameter Settings for User Entity Instance: VGA_sync:VGA_sync
+ 20. Parameter Settings for User Entity Instance: VGA_sync:VGA_sync|HSYNC:hsync_b
+ 21. Parameter Settings for User Entity Instance: VGA_sync:VGA_sync|VSYNC:vsync_b
+ 22. Parameter Settings for User Entity Instance: pixel_generator:Pixel_generator|LPM_ROM:green
+ 23. Parameter Settings for User Entity Instance: ContadorPuntaje:ContPuntaje
+ 24. Parameter Settings for User Entity Instance: binary_bcd:bin_to_BCD
+ 25. Port Connectivity Checks: "timer_move:timer_move"
+ 26. Elapsed Time Per Partition
+ 27. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                          ;
++------------------------------------+--------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu May 27 08:42:43 2021            ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
+; Revision Name                      ; VGA_Sync                                         ;
+; Top-level Entity Name              ; VGA_controller                                   ;
+; Family                             ; Cyclone III                                      ;
+; Total logic elements               ; 1,848                                            ;
+;     Total combinational functions  ; 1,712                                            ;
+;     Dedicated logic registers      ; 737                                              ;
+; Total registers                    ; 737                                              ;
+; Total pins                         ; 50                                               ;
+; Total virtual pins                 ; 0                                                ;
+; Total memory bits                  ; 327,680                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                                ;
+; Total PLLs                         ; 0                                                ;
++------------------------------------+--------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP3C16F484C6       ;                    ;
+; Top-level entity name                                                      ; VGA_controller     ; VGA_Sync           ;
+; Family name                                                                ; Cyclone III        ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ; < 0.1%      ;
+;     Processors 5-8         ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                              ;
++----------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                ; Library ;
++----------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------------------+---------+
+; AleatorioGeneral.vhd             ; yes             ; User VHDL File                         ; C:/Users/aulasingenieria/Desktop/FPGA/Proyecto Final/AleatorioGeneral.vhd   ;         ;
+; AleatorioDos.vhd                 ; yes             ; User VHDL File                         ; C:/Users/aulasingenieria/Desktop/FPGA/Proyecto Final/AleatorioDos.vhd       ;         ;
+; Aleatorio.vhd                    ; yes             ; User VHDL File                         ; C:/Users/aulasingenieria/Desktop/FPGA/Proyecto Final/Aleatorio.vhd          ;         ;
+; Escalizador.vhd                  ; yes             ; User VHDL File                         ; C:/Users/aulasingenieria/Desktop/FPGA/Proyecto Final/Escalizador.vhd        ;         ;
+; VGA_controller.vhd               ; yes             ; User VHDL File                         ; C:/Users/aulasingenieria/Desktop/FPGA/Proyecto Final/VGA_controller.vhd     ;         ;
+; HSync.vhd                        ; yes             ; User VHDL File                         ; C:/Users/aulasingenieria/Desktop/FPGA/Proyecto Final/HSync.vhd              ;         ;
+; VSync.vhd                        ; yes             ; User VHDL File                         ; C:/Users/aulasingenieria/Desktop/FPGA/Proyecto Final/VSync.vhd              ;         ;
+; VGA_Sync.vhd                     ; yes             ; User VHDL File                         ; C:/Users/aulasingenieria/Desktop/FPGA/Proyecto Final/VGA_Sync.vhd           ;         ;
+; CLK_VGA.vhd                      ; yes             ; User VHDL File                         ; C:/Users/aulasingenieria/Desktop/FPGA/Proyecto Final/CLK_VGA.vhd            ;         ;
+; Pixel_generatror.vhd             ; yes             ; User VHDL File                         ; C:/Users/aulasingenieria/Desktop/FPGA/Proyecto Final/Pixel_generatror.vhd   ;         ;
+; culebra.vhd                      ; yes             ; User VHDL File                         ; C:/Users/aulasingenieria/Desktop/FPGA/Proyecto Final/culebra.vhd            ;         ;
+; culebra_control.vhd              ; yes             ; User VHDL File                         ; C:/Users/aulasingenieria/Desktop/FPGA/Proyecto Final/culebra_control.vhd    ;         ;
+; timer_move.vhd                   ; yes             ; User VHDL File                         ; C:/Users/aulasingenieria/Desktop/FPGA/Proyecto Final/timer_move.vhd         ;         ;
+; culebra_debouncer.vhd            ; yes             ; User VHDL File                         ; C:/Users/aulasingenieria/Desktop/FPGA/Proyecto Final/culebra_debouncer.vhd  ;         ;
+; tablero.vhd                      ; yes             ; User VHDL File                         ; C:/Users/aulasingenieria/Desktop/FPGA/Proyecto Final/tablero.vhd            ;         ;
+; Contador_puntaje.vhd             ; yes             ; User VHDL File                         ; C:/Users/aulasingenieria/Desktop/FPGA/Proyecto Final/Contador_puntaje.vhd   ;         ;
+; Binary_BCD.vhd                   ; yes             ; User VHDL File                         ; C:/Users/aulasingenieria/Desktop/FPGA/Proyecto Final/Binary_BCD.vhd         ;         ;
+; bin_to_sseg.vhd                  ; yes             ; User VHDL File                         ; C:/Users/aulasingenieria/Desktop/FPGA/Proyecto Final/bin_to_sseg.vhd        ;         ;
+; lpm_rom.tdf                      ; yes             ; Megafunction                           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_rom.tdf               ;         ;
+; altrom.inc                       ; yes             ; Megafunction                           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altrom.inc                ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc            ;         ;
+; altrom.tdf                       ; yes             ; Megafunction                           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altrom.tdf                ;         ;
+; memmodes.inc                     ; yes             ; Megafunction                           ; c:/altera/13.0sp1/quartus/libraries/others/maxplus2/memmodes.inc            ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_decode.inc            ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mux.inc               ;         ;
+; altsyncram.inc                   ; yes             ; Megafunction                           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altsyncram.inc            ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altsyncram.tdf            ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/stratix_ram_block.inc     ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/a_rdenreg.inc             ;         ;
+; altram.inc                       ; yes             ; Megafunction                           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altram.inc                ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altdpram.inc              ;         ;
+; db/altsyncram_qs01.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/aulasingenieria/Desktop/FPGA/Proyecto Final/db/altsyncram_qs01.tdf ;         ;
+; green_imageB.mif                 ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/aulasingenieria/Desktop/FPGA/Proyecto Final/green_imageB.mif       ;         ;
++----------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 1,848     ;
+;                                             ;           ;
+; Total combinational functions               ; 1712      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 1302      ;
+;     -- 3 input functions                    ; 281       ;
+;     -- <=2 input functions                  ; 129       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 1636      ;
+;     -- arithmetic mode                      ; 76        ;
+;                                             ;           ;
+; Total registers                             ; 737       ;
+;     -- Dedicated logic registers            ; 737       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 50        ;
+; Total memory bits                           ; 327680    ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 1334      ;
+; Total fan-out                               ; 15061     ;
+; Average fan-out                             ; 4.72      ;
++---------------------------------------------+-----------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                        ;
++-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                           ; Library Name ;
++-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |VGA_controller                                 ; 1712 (2)          ; 737 (0)      ; 327680      ; 0            ; 0       ; 0         ; 50   ; 0            ; |VGA_controller                                                                                                               ; work         ;
+;    |AleatorioGeneral:Aleatorio|                 ; 20 (0)            ; 8 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_controller|AleatorioGeneral:Aleatorio                                                                                    ; work         ;
+;       |Aleatorio:DUT|                           ; 9 (9)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_controller|AleatorioGeneral:Aleatorio|Aleatorio:DUT                                                                      ; work         ;
+;       |AleatorioDos:DUT1|                       ; 11 (11)           ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_controller|AleatorioGeneral:Aleatorio|AleatorioDos:DUT1                                                                  ; work         ;
+;    |ContadorPuntaje:ContPuntaje|                ; 6 (6)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_controller|ContadorPuntaje:ContPuntaje                                                                                   ; work         ;
+;    |Escalizador:Escalizador|                    ; 15 (15)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_controller|Escalizador:Escalizador                                                                                       ; work         ;
+;    |VGA_sync:VGA_sync|                          ; 69 (4)            ; 39 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_controller|VGA_sync:VGA_sync                                                                                             ; work         ;
+;       |HSYNC:hsync_b|                           ; 34 (34)           ; 20 (20)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_controller|VGA_sync:VGA_sync|HSYNC:hsync_b                                                                               ; work         ;
+;       |VSYNC:vsync_b|                           ; 30 (30)           ; 18 (18)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_controller|VGA_sync:VGA_sync|VSYNC:vsync_b                                                                               ; work         ;
+;       |clk_VGA:clk_VGA|                         ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_controller|VGA_sync:VGA_sync|clk_VGA:clk_VGA                                                                             ; work         ;
+;    |bin_to_sseg:bin_to_sseg1|                   ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_controller|bin_to_sseg:bin_to_sseg1                                                                                      ; work         ;
+;    |bin_to_sseg:bin_to_sseg2|                   ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_controller|bin_to_sseg:bin_to_sseg2                                                                                      ; work         ;
+;    |bin_to_sseg:bin_to_sseg3|                   ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_controller|bin_to_sseg:bin_to_sseg3                                                                                      ; work         ;
+;    |bin_to_sseg:bin_to_sseg4|                   ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_controller|bin_to_sseg:bin_to_sseg4                                                                                      ; work         ;
+;    |binary_bcd:bin_to_BCD|                      ; 48 (48)           ; 42 (42)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_controller|binary_bcd:bin_to_BCD                                                                                         ; work         ;
+;    |culebra:culebra|                            ; 132 (132)         ; 128 (128)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_controller|culebra:culebra                                                                                               ; work         ;
+;    |culebra_control:culebra_control|            ; 60 (60)           ; 21 (21)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_controller|culebra_control:culebra_control                                                                               ; work         ;
+;    |culebra_debouncer:culebra_debouncer|        ; 4 (4)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_controller|culebra_debouncer:culebra_debouncer                                                                           ; work         ;
+;    |pixel_generator:Pixel_generator|            ; 433 (433)         ; 0 (0)        ; 327680      ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_controller|pixel_generator:Pixel_generator                                                                               ; work         ;
+;       |lpm_rom:green|                           ; 0 (0)             ; 0 (0)        ; 327680      ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_controller|pixel_generator:Pixel_generator|lpm_rom:green                                                                 ; work         ;
+;          |altrom:srom|                          ; 0 (0)             ; 0 (0)        ; 327680      ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_controller|pixel_generator:Pixel_generator|lpm_rom:green|altrom:srom                                                     ; work         ;
+;             |altsyncram:rom_block|              ; 0 (0)             ; 0 (0)        ; 327680      ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_controller|pixel_generator:Pixel_generator|lpm_rom:green|altrom:srom|altsyncram:rom_block                                ; work         ;
+;                |altsyncram_qs01:auto_generated| ; 0 (0)             ; 0 (0)        ; 327680      ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_controller|pixel_generator:Pixel_generator|lpm_rom:green|altrom:srom|altsyncram:rom_block|altsyncram_qs01:auto_generated ; work         ;
+;    |tablero:tablero|                            ; 855 (855)         ; 457 (457)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_controller|tablero:tablero                                                                                               ; work         ;
+;    |timer_move:timer_move|                      ; 40 (40)           ; 27 (27)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_controller|timer_move:timer_move                                                                                         ; work         ;
++-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                               ;
++--------------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+------------------+
+; Name                                                                                                                     ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF              ;
++--------------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+------------------+
+; pixel_generator:Pixel_generator|lpm_rom:green|altrom:srom|altsyncram:rom_block|altsyncram_qs01:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 512          ; 640          ; --           ; --           ; 327680 ; green_imageB.mif ;
++--------------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------+
+; State Machine - |VGA_controller|binary_bcd:bin_to_BCD|state ;
++-------------+------------+-------------+--------------------+
+; Name        ; state.done ; state.shift ; state.start        ;
++-------------+------------+-------------+--------------------+
+; state.start ; 0          ; 0           ; 0                  ;
+; state.shift ; 0          ; 1           ; 1                  ;
+; state.done  ; 1          ; 0           ; 1                  ;
++-------------+------------+-------------+--------------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                       ;
++------------------------------------------------------------+---------------------+------------------------+
+; Latch Name                                                 ; Latch Enable Signal ; Free of Timing Hazards ;
++------------------------------------------------------------+---------------------+------------------------+
+; VGA_sync:VGA_sync|HSYNC:hsync_b|HSync_s                    ; GND                 ; yes                    ;
+; VGA_sync:VGA_sync|VSYNC:vsync_b|VSync_s                    ; GND                 ; yes                    ;
+; VGA_sync:VGA_sync|HSYNC:hsync_b|Hvid_on                    ; GND                 ; yes                    ;
+; VGA_sync:VGA_sync|VSYNC:vsync_b|Vvid_on                    ; GND                 ; yes                    ;
+; AleatorioGeneral:Aleatorio|Aleatorio:DUT|rand_x_out[0]     ; comb                ; yes                    ;
+; AleatorioGeneral:Aleatorio|Aleatorio:DUT|rand_x_out[1]     ; comb                ; yes                    ;
+; AleatorioGeneral:Aleatorio|Aleatorio:DUT|rand_x_out[2]     ; comb                ; yes                    ;
+; AleatorioGeneral:Aleatorio|Aleatorio:DUT|rand_x_out[3]     ; comb                ; yes                    ;
+; AleatorioGeneral:Aleatorio|AleatorioDos:DUT1|rand_y_out[0] ; comb                ; yes                    ;
+; AleatorioGeneral:Aleatorio|AleatorioDos:DUT1|rand_y_out[1] ; comb                ; yes                    ;
+; AleatorioGeneral:Aleatorio|AleatorioDos:DUT1|rand_y_out[2] ; comb                ; yes                    ;
+; AleatorioGeneral:Aleatorio|AleatorioDos:DUT1|rand_y_out[3] ; comb                ; yes                    ;
+; culebra_control:culebra_control|culehead_x_next[0]         ; VCC                 ; yes                    ;
+; culebra_control:culebra_control|culehead_x_next[1]         ; VCC                 ; yes                    ;
+; culebra_control:culebra_control|culehead_x_next[2]         ; VCC                 ; yes                    ;
+; culebra_control:culebra_control|culehead_x_next[3]         ; VCC                 ; yes                    ;
+; culebra_control:culebra_control|culehead_y_next[0]         ; VCC                 ; yes                    ;
+; culebra_control:culebra_control|culehead_y_next[1]         ; VCC                 ; yes                    ;
+; culebra_control:culebra_control|culehead_y_next[2]         ; VCC                 ; yes                    ;
+; culebra_control:culebra_control|culehead_y_next[3]         ; VCC                 ; yes                    ;
+; culebra_control:culebra_control|dir_actual[1]              ; GND                 ; yes                    ;
+; culebra_control:culebra_control|dir_actual[0]              ; GND                 ; yes                    ;
+; Number of user-specified and inferred latches = 22         ;                     ;                        ;
++------------------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------------+
+; Registers Removed During Synthesis                               ;
++---------------------------------------------+--------------------+
+; Register name                               ; Reason for Removal ;
++---------------------------------------------+--------------------+
+; VGA_sync:VGA_sync|clk_VGA:clk_VGA|q_s[1..3] ; Lost fanout        ;
+; Total Number of Removed Registers = 3       ;                    ;
++---------------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 737   ;
+; Number of registers using Synchronous Clear  ; 33    ;
+; Number of registers using Synchronous Load   ; 1     ;
+; Number of registers using Asynchronous Clear ; 559   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 216   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------+
+; Inverted Register Statistics                                        ;
++-----------------------------------------------------------+---------+
+; Inverted Register                                         ; Fan out ;
++-----------------------------------------------------------+---------+
+; culebra:culebra|x_culebra[2][0]                           ; 1       ;
+; culebra:culebra|x_culebra[0][0]                           ; 1       ;
+; culebra:culebra|x_culebra[0][1]                           ; 1       ;
+; culebra:culebra|x_culebra[1][2]                           ; 1       ;
+; culebra:culebra|x_culebra[2][2]                           ; 1       ;
+; culebra:culebra|y_culebra[2][1]                           ; 1       ;
+; culebra:culebra|y_culebra[1][1]                           ; 1       ;
+; culebra:culebra|y_culebra[0][1]                           ; 1       ;
+; culebra:culebra|y_culebra[1][2]                           ; 1       ;
+; culebra:culebra|y_culebra[2][2]                           ; 1       ;
+; culebra:culebra|y_culebra[0][2]                           ; 1       ;
+; AleatorioGeneral:Aleatorio|AleatorioDos:DUT1|rand_temp[1] ; 6       ;
+; AleatorioGeneral:Aleatorio|Aleatorio:DUT|rand_temp[3]     ; 4       ;
+; Total number of inverted registers = 13                   ;         ;
++-----------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |VGA_controller|VGA_sync:VGA_sync|HSYNC:hsync_b|temp_count[5]      ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |VGA_controller|VGA_sync:VGA_sync|HSYNC:hsync_b|temp_pix[0]        ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |VGA_controller|VGA_sync:VGA_sync|VSYNC:vsync_b|temp_pix[6]        ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |VGA_controller|tablero:tablero|cuenta_culebra[3]                  ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |VGA_controller|culebra_control:culebra_control|culehead[4]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |VGA_controller|timer_move:timer_move|temp_deci[1]                 ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |VGA_controller|culebra_control:culebra_control|culetail[4]        ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |VGA_controller|binary_bcd:bin_to_BCD|binary[2]                    ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; Yes        ; |VGA_controller|culebra_debouncer:culebra_debouncer|dir[0]         ;
+; 16:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; Yes        ; |VGA_controller|Escalizador:Escalizador|pos_y[3]                   ;
+; 17:1               ; 4 bits    ; 44 LEs        ; 40 LEs               ; 4 LEs                  ; Yes        ; |VGA_controller|Escalizador:Escalizador|pos_x[3]                   ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |VGA_controller|culebra_control:culebra_control|culehead_x_next[3] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |VGA_controller|culebra_control:culebra_control|culehead_y_next[0] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |VGA_controller|binary_bcd:bin_to_BCD|bcds_next                    ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |VGA_controller|binary_bcd:bin_to_BCD|bcds_next                    ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |VGA_controller|binary_bcd:bin_to_BCD|bcds_next                    ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |VGA_controller|binary_bcd:bin_to_BCD|bcds_next                    ;
+; 16:1               ; 8 bits    ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |VGA_controller|culebra:culebra|Mux3                               ;
+; 225:1              ; 2 bits    ; 300 LEs       ; 300 LEs              ; 0 LEs                  ; No         ; |VGA_controller|tablero:tablero|Mux15                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for pixel_generator:Pixel_generator|LPM_ROM:green|altrom:srom|altsyncram:rom_block|altsyncram_qs01:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                     ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                      ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |VGA_controller ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; N              ; 2     ; Signed Integer                                        ;
+; N2             ; 4     ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: culebra:culebra ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; data_width     ; 4     ; Signed Integer                      ;
+; addr_width     ; 4     ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: timer_move:timer_move ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; n              ; 4     ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: VGA_sync:VGA_sync ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; n              ; 2     ; Signed Integer                        ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: VGA_sync:VGA_sync|HSYNC:hsync_b ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; n              ; 2     ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: VGA_sync:VGA_sync|VSYNC:vsync_b ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; n              ; 2     ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pixel_generator:Pixel_generator|LPM_ROM:green ;
++------------------------+------------------+------------------------------------------------+
+; Parameter Name         ; Value            ; Type                                           ;
++------------------------+------------------+------------------------------------------------+
+; LPM_WIDTH              ; 640              ; Signed Integer                                 ;
+; LPM_WIDTHAD            ; 9                ; Signed Integer                                 ;
+; LPM_NUMWORDS           ; 0                ; Signed Integer                                 ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED       ; Untyped                                        ;
+; LPM_OUTDATA            ; UNREGISTERED     ; Untyped                                        ;
+; LPM_FILE               ; green_imageB.mif ; Untyped                                        ;
+; DEVICE_FAMILY          ; Cyclone III      ; Untyped                                        ;
+; AUTO_CARRY_CHAINS      ; ON               ; AUTO_CARRY                                     ;
+; IGNORE_CARRY_BUFFERS   ; OFF              ; IGNORE_CARRY                                   ;
+; AUTO_CASCADE_CHAINS    ; ON               ; AUTO_CASCADE                                   ;
+; IGNORE_CASCADE_BUFFERS ; OFF              ; IGNORE_CASCADE                                 ;
++------------------------+------------------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ContadorPuntaje:ContPuntaje ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; n              ; 4     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: binary_bcd:bin_to_BCD ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; n              ; 4     ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "timer_move:timer_move" ;
++------+-------+----------+-------------------------+
+; Port ; Type  ; Severity ; Details                 ;
++------+-------+----------+-------------------------+
+; ena  ; Input ; Info     ; Stuck at VCC            ;
++------+-------+----------+-------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:05     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+    Info: Processing started: Thu May 27 08:42:30 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VGA_Sync -c VGA_Sync
+Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
+Info (12021): Found 2 design units, including 1 entities, in source file aleatoriogeneral.vhd
+    Info (12022): Found design unit 1: AleatorioGeneral-Behavioral
+    Info (12023): Found entity 1: AleatorioGeneral
+Info (12021): Found 2 design units, including 1 entities, in source file aleatoriodos.vhd
+    Info (12022): Found design unit 1: AleatorioDos-Behavioral
+    Info (12023): Found entity 1: AleatorioDos
+Info (12021): Found 2 design units, including 1 entities, in source file aleatorio.vhd
+    Info (12022): Found design unit 1: Aleatorio-Behavioral
+    Info (12023): Found entity 1: Aleatorio
+Info (12021): Found 2 design units, including 1 entities, in source file escalizador.vhd
+    Info (12022): Found design unit 1: Escalizador-rtl
+    Info (12023): Found entity 1: Escalizador
+Info (12021): Found 2 design units, including 1 entities, in source file vga_controller.vhd
+    Info (12022): Found design unit 1: VGA_controller-functional
+    Info (12023): Found entity 1: VGA_controller
+Info (12021): Found 2 design units, including 1 entities, in source file vga_sync_tb.vhd
+    Info (12022): Found design unit 1: VGA_sync_tb-testbench
+    Info (12023): Found entity 1: VGA_sync_tb
+Info (12021): Found 2 design units, including 1 entities, in source file hsync.vhd
+    Info (12022): Found design unit 1: HSYNC-rtl
+    Info (12023): Found entity 1: HSYNC
+Info (12021): Found 2 design units, including 1 entities, in source file vsync.vhd
+    Info (12022): Found design unit 1: VSYNC-rtl
+    Info (12023): Found entity 1: VSYNC
+Info (12021): Found 2 design units, including 1 entities, in source file vga_sync.vhd
+    Info (12022): Found design unit 1: VGA_sync-functional
+    Info (12023): Found entity 1: VGA_sync
+Info (12021): Found 2 design units, including 1 entities, in source file clk_vga.vhd
+    Info (12022): Found design unit 1: clk_VGA-rtl
+    Info (12023): Found entity 1: clk_VGA
+Info (12021): Found 2 design units, including 1 entities, in source file pixel_generatror.vhd
+    Info (12022): Found design unit 1: pixel_generator-rtl
+    Info (12023): Found entity 1: pixel_generator
+Info (12021): Found 2 design units, including 1 entities, in source file culebra.vhd
+    Info (12022): Found design unit 1: culebra-rtl
+    Info (12023): Found entity 1: culebra
+Info (12021): Found 2 design units, including 1 entities, in source file culebra_control.vhd
+    Info (12022): Found design unit 1: culebra_control-functional
+    Info (12023): Found entity 1: culebra_control
+Info (12021): Found 2 design units, including 1 entities, in source file timer_move.vhd
+    Info (12022): Found design unit 1: timer_move-rtl
+    Info (12023): Found entity 1: timer_move
+Info (12021): Found 2 design units, including 1 entities, in source file culebra_debouncer.vhd
+    Info (12022): Found design unit 1: culebra_debouncer-rtl
+    Info (12023): Found entity 1: culebra_debouncer
+Info (12021): Found 2 design units, including 1 entities, in source file tablero.vhd
+    Info (12022): Found design unit 1: tablero-rtl
+    Info (12023): Found entity 1: tablero
+Info (12021): Found 2 design units, including 1 entities, in source file contador_puntaje.vhd
+    Info (12022): Found design unit 1: ContadorPuntaje-rtl
+    Info (12023): Found entity 1: ContadorPuntaje
+Info (12021): Found 2 design units, including 1 entities, in source file binary_bcd.vhd
+    Info (12022): Found design unit 1: binary_bcd-behaviour
+    Info (12023): Found entity 1: binary_bcd
+Info (12021): Found 2 design units, including 1 entities, in source file bin_to_sseg.vhd
+    Info (12022): Found design unit 1: bin_to_sseg-functional
+    Info (12023): Found entity 1: bin_to_sseg
+Info (12127): Elaborating entity "VGA_controller" for the top level hierarchy
+Info (12128): Elaborating entity "Escalizador" for hierarchy "Escalizador:Escalizador"
+Info (12128): Elaborating entity "tablero" for hierarchy "tablero:tablero"
+Warning (10492): VHDL Process Statement warning at tablero.vhd(75): signal "x_pixel" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at tablero.vhd(75): signal "y_pixel" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "culebra" for hierarchy "culebra:culebra"
+Info (12128): Elaborating entity "culebra_control" for hierarchy "culebra_control:culebra_control"
+Warning (10492): VHDL Process Statement warning at culebra_control.vhd(92): signal "culehead_x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at culebra_control.vhd(93): signal "culehead_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at culebra_control.vhd(94): signal "culehead" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at culebra_control.vhd(95): signal "culetail" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (10041): Inferred latch for "dir_actual[0]" at culebra_control.vhd(62)
+Info (10041): Inferred latch for "dir_actual[1]" at culebra_control.vhd(62)
+Info (10041): Inferred latch for "culehead_y_next[0]" at culebra_control.vhd(57)
+Info (10041): Inferred latch for "culehead_y_next[1]" at culebra_control.vhd(57)
+Info (10041): Inferred latch for "culehead_y_next[2]" at culebra_control.vhd(57)
+Info (10041): Inferred latch for "culehead_y_next[3]" at culebra_control.vhd(57)
+Info (10041): Inferred latch for "culehead_x_next[0]" at culebra_control.vhd(52)
+Info (10041): Inferred latch for "culehead_x_next[1]" at culebra_control.vhd(52)
+Info (10041): Inferred latch for "culehead_x_next[2]" at culebra_control.vhd(52)
+Info (10041): Inferred latch for "culehead_x_next[3]" at culebra_control.vhd(52)
+Info (12128): Elaborating entity "culebra_debouncer" for hierarchy "culebra_debouncer:culebra_debouncer"
+Info (12128): Elaborating entity "timer_move" for hierarchy "timer_move:timer_move"
+Info (12128): Elaborating entity "VGA_sync" for hierarchy "VGA_sync:VGA_sync"
+Info (12128): Elaborating entity "clk_VGA" for hierarchy "VGA_sync:VGA_sync|clk_VGA:clk_VGA"
+Info (12128): Elaborating entity "HSYNC" for hierarchy "VGA_sync:VGA_sync|HSYNC:hsync_b"
+Info (10041): Inferred latch for "HSync_s" at HSync.vhd(65)
+Info (10041): Inferred latch for "Hvid_on" at HSync.vhd(62)
+Info (12128): Elaborating entity "VSYNC" for hierarchy "VGA_sync:VGA_sync|VSYNC:vsync_b"
+Info (10041): Inferred latch for "VSync_s" at VSync.vhd(62)
+Info (10041): Inferred latch for "Vvid_on" at VSync.vhd(59)
+Info (12128): Elaborating entity "pixel_generator" for hierarchy "pixel_generator:Pixel_generator"
+Info (12128): Elaborating entity "LPM_ROM" for hierarchy "pixel_generator:Pixel_generator|LPM_ROM:green"
+Info (12130): Elaborated megafunction instantiation "pixel_generator:Pixel_generator|LPM_ROM:green"
+Info (12133): Instantiated megafunction "pixel_generator:Pixel_generator|LPM_ROM:green" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTH" = "640"
+    Info (12134): Parameter "LPM_WIDTHAD" = "9"
+    Info (12134): Parameter "LPM_NUMWORDS" = "0"
+    Info (12134): Parameter "LPM_ADDRESS_CONTROL" = "REGISTERED"
+    Info (12134): Parameter "LPM_OUTDATA" = "UNREGISTERED"
+    Info (12134): Parameter "LPM_FILE" = "green_imageB.mif"
+    Info (12134): Parameter "LPM_TYPE" = "LPM_ROM"
+    Info (12134): Parameter "INTENDED_DEVICE_FAMILY" = "UNUSED"
+    Info (12134): Parameter "LPM_HINT" = "UNUSED"
+Info (12128): Elaborating entity "altrom" for hierarchy "pixel_generator:Pixel_generator|LPM_ROM:green|altrom:srom"
+Info (12131): Elaborated megafunction instantiation "pixel_generator:Pixel_generator|LPM_ROM:green|altrom:srom", which is child of megafunction instantiation "pixel_generator:Pixel_generator|LPM_ROM:green"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "pixel_generator:Pixel_generator|LPM_ROM:green|altrom:srom|altsyncram:rom_block"
+Info (12131): Elaborated megafunction instantiation "pixel_generator:Pixel_generator|LPM_ROM:green|altrom:srom|altsyncram:rom_block", which is child of megafunction instantiation "pixel_generator:Pixel_generator|LPM_ROM:green"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_qs01.tdf
+    Info (12023): Found entity 1: altsyncram_qs01
+Info (12128): Elaborating entity "altsyncram_qs01" for hierarchy "pixel_generator:Pixel_generator|LPM_ROM:green|altrom:srom|altsyncram:rom_block|altsyncram_qs01:auto_generated"
+Critical Warning (127005): Memory depth (512) in the design file differs from memory depth (480) in the Memory Initialization File "C:/Users/aulasingenieria/Desktop/FPGA/Proyecto Final/green_imageB.mif" -- setting initial value for remaining addresses to 0
+Info (12128): Elaborating entity "AleatorioGeneral" for hierarchy "AleatorioGeneral:Aleatorio"
+Info (12128): Elaborating entity "Aleatorio" for hierarchy "AleatorioGeneral:Aleatorio|Aleatorio:DUT"
+Warning (10631): VHDL Process Statement warning at Aleatorio.vhd(14): inferring latch(es) for signal or variable "rand_x_out", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "rand_x_out[0]" at Aleatorio.vhd(14)
+Info (10041): Inferred latch for "rand_x_out[1]" at Aleatorio.vhd(14)
+Info (10041): Inferred latch for "rand_x_out[2]" at Aleatorio.vhd(14)
+Info (10041): Inferred latch for "rand_x_out[3]" at Aleatorio.vhd(14)
+Info (12128): Elaborating entity "AleatorioDos" for hierarchy "AleatorioGeneral:Aleatorio|AleatorioDos:DUT1"
+Warning (10631): VHDL Process Statement warning at AleatorioDos.vhd(14): inferring latch(es) for signal or variable "rand_y_out", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "rand_y_out[0]" at AleatorioDos.vhd(14)
+Info (10041): Inferred latch for "rand_y_out[1]" at AleatorioDos.vhd(14)
+Info (10041): Inferred latch for "rand_y_out[2]" at AleatorioDos.vhd(14)
+Info (10041): Inferred latch for "rand_y_out[3]" at AleatorioDos.vhd(14)
+Info (12128): Elaborating entity "ContadorPuntaje" for hierarchy "ContadorPuntaje:ContPuntaje"
+Info (12128): Elaborating entity "binary_bcd" for hierarchy "binary_bcd:bin_to_BCD"
+Info (12128): Elaborating entity "bin_to_sseg" for hierarchy "bin_to_sseg:bin_to_sseg1"
+Warning (19016): Clock multiplexers are found and protected
+    Warning (19017): Found clock multiplexer timer_move:timer_move|Mux1
+    Warning (19017): Found clock multiplexer timer_move:timer_move|Mux0
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[639]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[638]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[637]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[636]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[635]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[634]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[633]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[632]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[631]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[630]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[629]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[628]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[627]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[626]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[625]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[624]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[623]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[622]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[621]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[620]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[619]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[618]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[617]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[616]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[615]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[614]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[613]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[612]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[611]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[610]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[609]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[608]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[607]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[606]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[605]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[604]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[603]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[602]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[601]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[600]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[599]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[598]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[597]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[596]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[595]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[594]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[593]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[592]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[591]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[590]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[589]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[588]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[587]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[586]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[585]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[584]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[583]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[582]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[581]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[580]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[579]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[578]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[577]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[576]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[575]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[574]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[573]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[572]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[571]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[570]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[569]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[568]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[567]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[566]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[565]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[564]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[563]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[562]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[561]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[560]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[559]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[558]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[557]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[556]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[555]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[554]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[553]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[552]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[551]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[550]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[549]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[548]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[547]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[546]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[545]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[544]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[543]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[542]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[541]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[540]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[539]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[538]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[537]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[536]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[535]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[534]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[533]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[532]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[531]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[530]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[529]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[528]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[527]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[526]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[525]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[524]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[523]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[522]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[521]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[520]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[519]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[518]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[517]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[516]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[515]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[514]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[513]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[512]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[511]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[510]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[509]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[508]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[507]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[506]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[505]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[504]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[503]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[502]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[501]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[500]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[499]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[498]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[497]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[496]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[495]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[494]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[493]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[492]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[491]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[490]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[489]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[488]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[487]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[486]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[485]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[484]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[483]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[482]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[481]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[480]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[479]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[478]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[477]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[476]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[475]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[474]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[473]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[472]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[471]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[470]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[469]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[468]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[467]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[466]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[465]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[464]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[463]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[462]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[461]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[460]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[459]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[458]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[457]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[456]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[455]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[454]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[453]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[452]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[451]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[450]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[449]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[448]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[447]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[446]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[445]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[444]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[443]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[442]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[441]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[440]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[439]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[438]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[437]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[436]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[435]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[434]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[433]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[432]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[431]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[430]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[429]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[428]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[427]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[426]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[425]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[424]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[423]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[422]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[421]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[420]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[419]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[418]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[417]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[416]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[415]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[414]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[413]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[412]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[411]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[410]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[409]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[408]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[407]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[406]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[405]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[404]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[403]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[402]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[401]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[400]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[399]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[398]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[397]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[396]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[395]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[394]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[393]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[392]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[391]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[390]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[389]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[388]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[387]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[386]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[385]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[384]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[383]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[382]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[381]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[380]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[379]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[378]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[377]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[376]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[375]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[374]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[373]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[372]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[371]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[370]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[369]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[368]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[367]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[366]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[365]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[364]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[363]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[362]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[361]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[360]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[359]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[358]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[357]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[356]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[355]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[354]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[353]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[352]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[351]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[350]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[349]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[348]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[347]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[346]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[345]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[344]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[343]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[342]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[341]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[340]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[339]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[338]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[337]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[336]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[335]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[334]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[333]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[332]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[331]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[330]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[329]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[328]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[327]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[326]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[325]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[324]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[323]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[322]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[321]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[320]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[319]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[318]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[317]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[316]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[315]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[314]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[313]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[312]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[311]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[310]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[309]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[308]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[307]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[306]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[305]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[304]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[303]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[302]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[301]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[300]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[299]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[298]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[297]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[296]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[295]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[294]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[293]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[292]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[291]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[290]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[289]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[288]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[287]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[286]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[285]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[284]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[283]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[282]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[281]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[280]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[279]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[278]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[277]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[276]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[275]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[274]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[273]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[272]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[271]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[270]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[269]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[268]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[267]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[266]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[265]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[264]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[263]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[262]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[261]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[260]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[259]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[258]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[257]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[256]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[255]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[254]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[253]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[252]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[251]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[250]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[249]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[248]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[247]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[246]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[245]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[244]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[243]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[242]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[241]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[240]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[239]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[238]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[237]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[236]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[235]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[234]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[233]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[232]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[231]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[230]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[229]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[228]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[227]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[226]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[225]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[224]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[223]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[222]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[221]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[220]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[219]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[218]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[217]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[216]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[215]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[214]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[213]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[212]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[211]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[210]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[209]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[208]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[207]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[206]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[205]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[204]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[203]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[202]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[201]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[200]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[199]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[198]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[197]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[196]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[195]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[194]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[193]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[192]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[191]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[190]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[189]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[188]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[187]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[186]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[185]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[184]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[183]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[182]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[181]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[180]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[179]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[178]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[177]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[176]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[175]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[174]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[173]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[172]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[171]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[170]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[169]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[168]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[167]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[166]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[165]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[164]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[163]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[162]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[161]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[160]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[159]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[158]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[157]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[156]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[155]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[154]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[153]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[152]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[151]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[150]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[149]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[148]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[147]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[146]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[145]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[144]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[143]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[142]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[141]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[140]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[139]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[138]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[137]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[136]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[135]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[134]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[133]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[132]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[131]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[130]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[129]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[128]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[127]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[126]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[125]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[124]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[123]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[122]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[121]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[120]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[119]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[118]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[117]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[116]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[115]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[114]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[113]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[112]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[111]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[110]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[109]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[108]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[107]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[106]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[105]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[104]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[103]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[102]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[101]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[100]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[99]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[98]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[97]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[96]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[95]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[94]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[93]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[92]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[91]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[90]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[89]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[88]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[87]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[86]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[85]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[84]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[83]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[82]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[81]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[80]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[79]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[78]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[77]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[76]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[75]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[74]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[73]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[72]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[71]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[70]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[69]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[68]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[67]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[66]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[65]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[64]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[63]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[62]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[61]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[60]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[59]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[58]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[57]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[56]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[55]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[54]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[53]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[52]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[51]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[50]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[49]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[48]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[47]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[46]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[45]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[44]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[43]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[42]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[41]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[40]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[39]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[38]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[37]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[36]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[35]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[34]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[33]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[32]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[31]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[30]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[29]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[28]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[27]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[26]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[25]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[24]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[23]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[22]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[21]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[20]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[19]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[18]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[17]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[16]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[15]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[14]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[13]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[12]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[11]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[10]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[9]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[8]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[7]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[6]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[5]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[4]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[3]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[2]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[1]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "pixel_generator:Pixel_generator|lpm_rom:green|otri[0]" feeding internal logic into a wire
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 3 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 2540 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
+    Info (21059): Implemented 43 output pins
+    Info (21061): Implemented 1850 logic cells
+    Info (21064): Implemented 640 RAM segments
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 653 warnings
+    Info: Peak virtual memory: 4713 megabytes
+    Info: Processing ended: Thu May 27 08:42:43 2021
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:11
+
+

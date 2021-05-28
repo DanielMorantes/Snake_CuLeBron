@@ -1,0 +1,692 @@
+m255
+K3
+13
+cModel Technology
+dC:\Users\asus\Documents\Universidad\Octavo semestre\FPGA\Proyecto Final
+Eclk_vga
+Z0 w1619720326
+Z1 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z2 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
+Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z5 dC:\Users\asus\Desktop\Proyecto Final
+Z6 8C:/Users/asus/Desktop/Proyecto Final/CLK_VGA.vhd
+Z7 FC:/Users/asus/Desktop/Proyecto Final/CLK_VGA.vhd
+l0
+L5
+VUD5S02n:V9aVfhgb`n@j80
+Z8 OV;C;10.1d;51
+32
+Z9 !s108 1621701024.204000
+Z10 !s90 -reportprogress|300|-work|work|C:/Users/asus/Desktop/Proyecto Final/CLK_VGA.vhd|
+Z11 !s107 C:/Users/asus/Desktop/Proyecto Final/CLK_VGA.vhd|
+Z12 o-work work -O0
+Z13 tExplicit 1
+!s100 7CoV:jd:hQm=Pmzb3HkF90
+!i10b 1
+Artl
+R1
+R2
+R3
+R4
+Z14 DEx4 work 7 clk_vga 0 22 UD5S02n:V9aVfhgb`n@j80
+l15
+L13
+VV4?Kk7fjaBCQVjaYNLaad0
+R8
+32
+R9
+R10
+R11
+R12
+R13
+!s100 Y]dKoKJPcNd2chf3Uhb6_0
+!i10b 1
+Eculebra
+Z15 w1621457990
+Z16 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+R3
+R4
+R5
+Z17 8C:/Users/asus/Desktop/Proyecto Final/culebra.vhd
+Z18 FC:/Users/asus/Desktop/Proyecto Final/culebra.vhd
+l0
+L5
+VSf_NEjPoY7TJ:h;9[O;Bm1
+R8
+32
+Z19 !s108 1621701024.316000
+Z20 !s90 -reportprogress|300|-work|work|C:/Users/asus/Desktop/Proyecto Final/culebra.vhd|
+Z21 !s107 C:/Users/asus/Desktop/Proyecto Final/culebra.vhd|
+R12
+R13
+!s100 k6d:P2G<HE[FR]l0_m;zo3
+!i10b 1
+Artl
+R16
+R3
+R4
+Z22 DEx4 work 7 culebra 0 22 Sf_NEjPoY7TJ:h;9[O;Bm1
+l32
+L25
+VU][Ji2jXfzb`zS8K82jXW3
+R8
+32
+R19
+R20
+R21
+R12
+R13
+!s100 Go7_dhNASR]FJe[2CBUmM3
+!i10b 1
+Eculebra_control
+Z23 w1621458453
+R16
+R3
+R4
+R5
+Z24 8C:/Users/asus/Desktop/Proyecto Final/culebra_control.vhd
+Z25 FC:/Users/asus/Desktop/Proyecto Final/culebra_control.vhd
+l0
+L5
+V8BaKWSARjn1P^`m?^YL8d2
+R8
+32
+Z26 !s108 1621701024.401000
+Z27 !s90 -reportprogress|300|-work|work|C:/Users/asus/Desktop/Proyecto Final/culebra_control.vhd|
+Z28 !s107 C:/Users/asus/Desktop/Proyecto Final/culebra_control.vhd|
+R12
+R13
+!s100 37kB<g=oUdT1C_I^j6gTT0
+!i10b 1
+Afunctional
+R16
+R3
+R4
+Z29 DEx4 work 15 culebra_control 0 22 8BaKWSARjn1P^`m?^YL8d2
+l36
+L19
+ViYLVIkPCk4]>l>0i1N<Sz2
+R8
+32
+R26
+R27
+R28
+R12
+R13
+!s100 R:9aEaI[b<7hG9[]F7PA<1
+!i10b 1
+Eculebra_control_tb
+Z30 w1620198778
+R3
+R4
+R5
+Z31 8C:/Users/asus/Desktop/Proyecto Final/culebra_control_tb.vhd
+Z32 FC:/Users/asus/Desktop/Proyecto Final/culebra_control_tb.vhd
+l0
+L4
+Vdij2kM>H<Q@?bimkVR1k<2
+R8
+32
+Z33 !s108 1621701024.485000
+Z34 !s90 -reportprogress|300|-work|work|C:/Users/asus/Desktop/Proyecto Final/culebra_control_tb.vhd|
+Z35 !s107 C:/Users/asus/Desktop/Proyecto Final/culebra_control_tb.vhd|
+R12
+R13
+!s100 X;E8RBXMX>O7Hf?iM]]Gl1
+!i10b 1
+Atestbench
+R16
+R29
+R3
+R4
+DEx4 work 18 culebra_control_tb 0 22 dij2kM>H<Q@?bimkVR1k<2
+l22
+L7
+V^bnQYG88e<VEaY7lW;hmR3
+R8
+32
+R33
+R34
+R35
+R12
+R13
+!s100 V1[`O7L3Q4cFT3i?XoZiz1
+!i10b 1
+Eculebra_debouncer
+Z36 w1621450455
+R16
+R3
+R4
+R5
+Z37 8C:/Users/asus/Desktop/Proyecto Final/culebra_debouncer.vhd
+Z38 FC:/Users/asus/Desktop/Proyecto Final/culebra_debouncer.vhd
+l0
+L5
+VmXPABB2bS<8SXG2ze12231
+R8
+32
+Z39 !s108 1621701024.573000
+Z40 !s90 -reportprogress|300|-work|work|C:/Users/asus/Desktop/Proyecto Final/culebra_debouncer.vhd|
+Z41 !s107 C:/Users/asus/Desktop/Proyecto Final/culebra_debouncer.vhd|
+R12
+R13
+!s100 bbReej?nX9dF@0AO[0PVQ3
+!i10b 1
+Artl
+R16
+R3
+R4
+Z42 DEx4 work 17 culebra_debouncer 0 22 mXPABB2bS<8SXG2ze12231
+l26
+L18
+V9_?7`0nKo0P;_ceoS2m6C2
+R8
+32
+R39
+R40
+R41
+R12
+R13
+!s100 9OHh133L_:A>kdVOZal_E0
+!i10b 1
+Eculebra_tb
+Z43 w1620172402
+R3
+R4
+R5
+Z44 8C:/Users/asus/Desktop/Proyecto Final/culebra_tb.vhd
+Z45 FC:/Users/asus/Desktop/Proyecto Final/culebra_tb.vhd
+l0
+L4
+VOFQbZAg]Q1C:_[j6^1EfL1
+R8
+32
+Z46 !s108 1621701024.652000
+Z47 !s90 -reportprogress|300|-work|work|C:/Users/asus/Desktop/Proyecto Final/culebra_tb.vhd|
+Z48 !s107 C:/Users/asus/Desktop/Proyecto Final/culebra_tb.vhd|
+R12
+R13
+!s100 lUE_:lUn^?<ElHb_V5Gi`0
+!i10b 1
+Atestbench
+R16
+R22
+R3
+R4
+DEx4 work 10 culebra_tb 0 22 OFQbZAg]Q1C:_[j6^1EfL1
+l24
+L7
+V9@AI`YaQBg==;F^Sb[HcL1
+R8
+32
+R46
+R47
+R48
+R12
+R13
+!s100 0_13N[;KP30[3G4Z:m9Rd1
+!i10b 1
+Eescalizador
+Z49 w1621701588
+R16
+R3
+R4
+R5
+Z50 8C:/Users/asus/Desktop/Proyecto Final/Escalizador.vhd
+Z51 FC:/Users/asus/Desktop/Proyecto Final/Escalizador.vhd
+l0
+L5
+VJSPGBnIgP1zz_8EG]6hYn2
+!s100 P9jTf_gWW2=3F3ZI]b21L3
+R8
+32
+!i10b 1
+Z52 !s108 1621701629.695000
+Z53 !s90 -reportprogress|300|-work|work|C:/Users/asus/Desktop/Proyecto Final/Escalizador.vhd|
+Z54 !s107 C:/Users/asus/Desktop/Proyecto Final/Escalizador.vhd|
+R12
+R13
+Artl
+R16
+R3
+R4
+Z55 DEx4 work 11 escalizador 0 22 JSPGBnIgP1zz_8EG]6hYn2
+l21
+L17
+V?F]B90NzkjhJPENP@>B`z1
+!s100 WeCkMbR`EDG^gfZ^@c6_?3
+R8
+32
+!i10b 1
+R52
+R53
+R54
+R12
+R13
+Eescalizador_tb
+Z56 w1621700884
+R3
+R4
+R5
+Z57 8C:/Users/asus/Desktop/Proyecto Final/Escalizador_tb.vhd
+Z58 FC:/Users/asus/Desktop/Proyecto Final/Escalizador_tb.vhd
+l0
+L4
+Vc2iJX9GJ<bZLJfa:nH`U@3
+R8
+32
+Z59 !s108 1621701024.808000
+Z60 !s90 -reportprogress|300|-work|work|C:/Users/asus/Desktop/Proyecto Final/Escalizador_tb.vhd|
+Z61 !s107 C:/Users/asus/Desktop/Proyecto Final/Escalizador_tb.vhd|
+R12
+R13
+!s100 [ifIigK_;N?>D:bfl^Y<[0
+!i10b 1
+Atestbench
+R16
+R55
+R3
+R4
+DEx4 work 14 escalizador_tb 0 22 c2iJX9GJ<bZLJfa:nH`U@3
+l18
+L7
+Vo<04X4V20o@SQPFS[QQBR2
+R8
+32
+R59
+R60
+R61
+R12
+R13
+!s100 NQDfoccXDcW7eAnT3l@l_3
+!i10b 1
+Ehsync
+Z62 w1619681900
+R16
+R3
+R4
+R5
+Z63 8C:/Users/asus/Desktop/Proyecto Final/HSync.vhd
+Z64 FC:/Users/asus/Desktop/Proyecto Final/HSync.vhd
+l0
+L5
+V3Q`9EV6IKBOaBgV0??;0e1
+R8
+32
+Z65 !s108 1621701024.886000
+Z66 !s90 -reportprogress|300|-work|work|C:/Users/asus/Desktop/Proyecto Final/HSync.vhd|
+Z67 !s107 C:/Users/asus/Desktop/Proyecto Final/HSync.vhd|
+R12
+R13
+!s100 eTkB>kDC`Z?E3aI7U[[MD0
+!i10b 1
+Artl
+R16
+R3
+R4
+Z68 DEx4 work 5 hsync 0 22 3Q`9EV6IKBOaBgV0??;0e1
+l32
+L17
+VWLoGFTkIHR=UM8@3G_fUP3
+R8
+32
+R65
+R66
+R67
+R12
+R13
+!s100 KE[ElmSIbMJY8G^YBmjQQ1
+!i10b 1
+Epixel_generator
+Z69 w1621629617
+Z70 DPx3 lpm 14 lpm_components 0 22 aHRA3clF>2DcWDhgFTAbM3
+R16
+R3
+R4
+R5
+Z71 8C:/Users/asus/Desktop/Proyecto Final/Pixel_generatror.vhd
+Z72 FC:/Users/asus/Desktop/Proyecto Final/Pixel_generatror.vhd
+l0
+L9
+V1oYz@I3KeQ24Vj0fSlJWY0
+R8
+32
+Z73 !s108 1621701024.967000
+Z74 !s90 -reportprogress|300|-work|work|C:/Users/asus/Desktop/Proyecto Final/Pixel_generatror.vhd|
+Z75 !s107 C:/Users/asus/Desktop/Proyecto Final/Pixel_generatror.vhd|
+R12
+R13
+!s100 j8^JR3b`]i1BkJ4mB:gc=1
+!i10b 1
+Artl
+R70
+R16
+R3
+R4
+Z76 DEx4 work 15 pixel_generator 0 22 1oYz@I3KeQ24Vj0fSlJWY0
+l28
+L22
+V[S^l@PM[mdV3[2O2T:CIb0
+R8
+32
+R73
+R74
+R75
+R12
+R13
+!s100 l@bn`fCJDnc1UnAj[]`k[1
+!i10b 1
+Etablero
+Z77 w1621635639
+R16
+R3
+R4
+R5
+Z78 8C:/Users/asus/Desktop/Proyecto Final/tablero.vhd
+Z79 FC:/Users/asus/Desktop/Proyecto Final/tablero.vhd
+l0
+L5
+V1:`T7W4VjeD[AG:=F7zd12
+R8
+32
+Z80 !s108 1621701025.057000
+Z81 !s90 -reportprogress|300|-work|work|C:/Users/asus/Desktop/Proyecto Final/tablero.vhd|
+Z82 !s107 C:/Users/asus/Desktop/Proyecto Final/tablero.vhd|
+R12
+R13
+!s100 kZN@fHl0i>7X[gQiQ?PIf0
+!i10b 1
+Artl
+R16
+R3
+R4
+Z83 DEx4 work 7 tablero 0 22 1:`T7W4VjeD[AG:=F7zd12
+l34
+L26
+VzlTg9_1j[kLH8_8PNNoiN1
+R8
+32
+R80
+R81
+R82
+R12
+R13
+!s100 @AK0fz3XNb[H=Gn]TSZcL0
+!i10b 1
+Etablero_tb
+Z84 w1621391004
+R3
+R4
+R5
+8C:/Users/asus/Desktop/Proyecto Final/tablero_tb.vhd
+FC:/Users/asus/Desktop/Proyecto Final/tablero_tb.vhd
+l0
+L4
+VddGNhU;BFO>PHNQ4z9Uj43
+R8
+32
+R12
+R13
+!s100 T72mzP_hlGN<1EY4Aa2>e0
+!i10b 1
+!s108 1621637302.634000
+!s90 -reportprogress|300|-work|work|C:/Users/asus/Desktop/Proyecto Final/tablero_tb.vhd|
+!s107 C:/Users/asus/Desktop/Proyecto Final/tablero_tb.vhd|
+Atestbench
+R16
+DEx4 work 7 tablero 0 22 nVnmKl6?NT7UA3Y52IFE^0
+R3
+R4
+DEx4 work 10 tablero_tb 0 22 ddGNhU;BFO>PHNQ4z9Uj43
+l27
+L7
+V1d0;EB?jOkaFWWSkzJMZ11
+R8
+32
+R12
+R13
+Z85 dC:\Users\frant\OneDrive\Documentos\Universidad\8 semestre\FPGA\Proyecto final\Proyecto Final
+FC:/Users/frant/OneDrive/Documentos/Universidad/8 semestre/FPGA/Proyecto final/Proyecto Final/tablero_tb.vhd
+8C:/Users/frant/OneDrive/Documentos/Universidad/8 semestre/FPGA/Proyecto final/Proyecto Final/tablero_tb.vhd
+!s108 1621394815.141000
+!s90 -reportprogress|300|-work|work|C:/Users/frant/OneDrive/Documentos/Universidad/8 semestre/FPGA/Proyecto final/Proyecto Final/tablero_tb.vhd|
+!s107 C:/Users/frant/OneDrive/Documentos/Universidad/8 semestre/FPGA/Proyecto final/Proyecto Final/tablero_tb.vhd|
+!s100 8MFOVHbkeoQW4G?jg]:E92
+!i10b 1
+Etimer_move
+Z86 w1621446677
+R16
+R3
+R4
+R5
+Z87 8C:/Users/asus/Desktop/Proyecto Final/timer_move.vhd
+Z88 FC:/Users/asus/Desktop/Proyecto Final/timer_move.vhd
+l0
+L5
+VEIWNlH4hl^AE`3k61223:3
+R8
+32
+Z89 !s108 1621701025.140000
+Z90 !s90 -reportprogress|300|-work|work|C:/Users/asus/Desktop/Proyecto Final/timer_move.vhd|
+Z91 !s107 C:/Users/asus/Desktop/Proyecto Final/timer_move.vhd|
+R12
+R13
+!s100 1V]>6EMD=M;m823`HJ=;b1
+!i10b 1
+Artl
+R16
+R3
+R4
+Z92 DEx4 work 10 timer_move 0 22 EIWNlH4hl^AE`3k61223:3
+l25
+L16
+VaOjz`Th<;RKXaPh;EPV]M3
+R8
+32
+R89
+R90
+R91
+R12
+R13
+!s100 Jl@=D9Q48F^UC0K[^mZR22
+!i10b 1
+Evga_controller
+Z93 w1621451542
+R16
+R3
+R4
+R5
+Z94 8C:/Users/asus/Desktop/Proyecto Final/VGA_controller.vhd
+Z95 FC:/Users/asus/Desktop/Proyecto Final/VGA_controller.vhd
+l0
+L5
+VH`Fa:dH010[193A8`mkNY1
+R8
+32
+Z96 !s108 1621701025.215000
+Z97 !s90 -reportprogress|300|-work|work|C:/Users/asus/Desktop/Proyecto Final/VGA_controller.vhd|
+Z98 !s107 C:/Users/asus/Desktop/Proyecto Final/VGA_controller.vhd|
+R12
+R13
+!s100 3lkHSzh8I<@CPEg3<5:G^2
+!i10b 1
+Afunctional
+R70
+R76
+Z99 DEx4 work 8 vga_sync 0 22 iE_<=_Ub7IGThjC17>Fnj3
+R92
+R42
+R29
+R22
+R83
+R55
+R16
+R3
+R4
+DEx4 work 14 vga_controller 0 22 H`Fa:dH010[193A8`mkNY1
+l52
+L21
+VmcKI<3_:<5fNmPh9TPd8c3
+R8
+32
+R96
+R97
+R98
+R12
+R13
+!s100 bA5;L@zN[h<=m=_ci5N`S0
+!i10b 1
+Evga_controller_tb
+Z100 w1619736974
+R3
+R4
+R85
+Z101 8C:/Users/frant/OneDrive/Documentos/Universidad/8 semestre/FPGA/Proyecto final/Proyecto Final/VGA_controller_tb.vhd
+Z102 FC:/Users/frant/OneDrive/Documentos/Universidad/8 semestre/FPGA/Proyecto final/Proyecto Final/VGA_controller_tb.vhd
+l0
+L4
+VOA>O7A@z3Id`cXeoUoA^Z1
+R8
+32
+Z103 !s90 -reportprogress|300|-work|work|C:/Users/frant/OneDrive/Documentos/Universidad/8 semestre/FPGA/Proyecto final/Proyecto Final/VGA_controller_tb.vhd|
+R12
+R13
+Z104 !s107 C:/Users/frant/OneDrive/Documentos/Universidad/8 semestre/FPGA/Proyecto final/Proyecto Final/VGA_controller_tb.vhd|
+!s100 iQ^bLj:g_eVTdA3^2[3?f2
+!i10b 1
+!s108 1621365856.036000
+Atestbench
+R16
+DEx4 work 14 vga_controller 0 22 XYKFW5NJVBC@ij>A8cUlC3
+R3
+R4
+DEx4 work 17 vga_controller_tb 0 22 OA>O7A@z3Id`cXeoUoA^Z1
+l19
+L8
+V4Z6[2=0S3a4U0>elK8d>a3
+R8
+32
+R103
+R12
+R13
+R104
+!s108 1620201766.346000
+!s100 ^[TcEE^`ekeY59_7Uod8M3
+!i10b 1
+Evga_sync
+Z105 w1619738276
+R16
+R3
+R4
+R5
+Z106 8C:/Users/asus/Desktop/Proyecto Final/VGA_Sync.vhd
+Z107 FC:/Users/asus/Desktop/Proyecto Final/VGA_Sync.vhd
+l0
+L5
+ViE_<=_Ub7IGThjC17>Fnj3
+R8
+32
+Z108 !s108 1621701025.311000
+Z109 !s90 -reportprogress|300|-work|work|C:/Users/asus/Desktop/Proyecto Final/VGA_Sync.vhd|
+Z110 !s107 C:/Users/asus/Desktop/Proyecto Final/VGA_Sync.vhd|
+R12
+R13
+!s100 BHYoL=<B=hJ7c15WYCVbZ2
+!i10b 1
+Afunctional
+Z111 DEx4 work 5 vsync 0 22 ?zTYi[IlnLih8kAGFFb991
+R68
+R1
+R2
+R14
+R16
+R3
+R4
+R99
+l24
+L17
+V2DQ8CM2^H4T5;9`[2@FZE0
+R8
+32
+R108
+R109
+R110
+R12
+R13
+!s100 RE?]<obR9lZhTWbe5PCXl3
+!i10b 1
+Evga_sync_tb
+Z112 w1620168638
+R3
+R4
+R5
+Z113 8C:/Users/asus/Desktop/Proyecto Final/VGA_Sync_tb.vhd
+Z114 FC:/Users/asus/Desktop/Proyecto Final/VGA_Sync_tb.vhd
+l0
+L4
+V`:j7B0iCFZX;58Y?:HI@j2
+R8
+32
+Z115 !s108 1621701025.398000
+Z116 !s90 -reportprogress|300|-work|work|C:/Users/asus/Desktop/Proyecto Final/VGA_Sync_tb.vhd|
+Z117 !s107 C:/Users/asus/Desktop/Proyecto Final/VGA_Sync_tb.vhd|
+R12
+R13
+!s100 ?aC`mzFRNHLD>emZg1oQB2
+!i10b 1
+Atestbench
+R16
+R99
+R3
+R4
+DEx4 work 11 vga_sync_tb 0 22 `:j7B0iCFZX;58Y?:HI@j2
+l19
+L8
+VDhc4LLS^JkFX<;]XaH;Jo3
+R8
+32
+R115
+R116
+R117
+R12
+R13
+!s100 P=YJ:IJJUd6QbWHGfWQ3g2
+!i10b 1
+Evsync
+Z118 w1619738318
+R16
+R3
+R4
+R5
+Z119 8C:/Users/asus/Desktop/Proyecto Final/VSync.vhd
+Z120 FC:/Users/asus/Desktop/Proyecto Final/VSync.vhd
+l0
+L5
+V?zTYi[IlnLih8kAGFFb991
+R8
+32
+Z121 !s108 1621701025.476000
+Z122 !s90 -reportprogress|300|-work|work|C:/Users/asus/Desktop/Proyecto Final/VSync.vhd|
+Z123 !s107 C:/Users/asus/Desktop/Proyecto Final/VSync.vhd|
+R12
+R13
+!s100 Im:0Z_6T2Bj6Gc6TA1hE_0
+!i10b 1
+Artl
+R16
+R3
+R4
+R111
+l29
+L16
+VN75[66>=aQFd4MQ8aQKeJ3
+!s100 KIAIgFTP0NeLQOT@ClzGd3
+R8
+32
+R121
+R122
+R123
+R12
+R13
+!i10b 1
